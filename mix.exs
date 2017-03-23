@@ -28,6 +28,8 @@ defmodule SolrWriter.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{ :elsol, git: "https://github.com/findmypast/elsol.git" },
+     { :httpotion, "~> 3.0.2" },
+     { :sweet_xml, "~> 0.6.5" }]
   end
 end

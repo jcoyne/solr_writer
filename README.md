@@ -1,19 +1,9 @@
 # SolrWriter
 
-**TODO: Add description**
+Grabs resources from a resource-sync enabled repository and puts them in solr.
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `solr_writer` to your list of dependencies in `mix.exs`:
+## Usage
 
 ```elixir
-def deps do
-  [{:solr_writer, "~> 0.1.0"}]
-end
+SolrWriter.retrieve_resources()
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/solr_writer](https://hexdocs.pm/solr_writer).
-
