@@ -2,8 +2,14 @@
 
 Grabs resources from a resource-sync enabled repository and puts them in solr.
 
+## Building
+
+```shell
+mix escript.build
+```
+
 ## Usage
 
-```elixir
-SolrWriter.retrieve_resources()
+```shell
+./solr_writer https://hyphy.demo.hydrainabox.org/resourcelist
 ```

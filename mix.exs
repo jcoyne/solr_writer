@@ -5,6 +5,7 @@ defmodule SolrWriter.Mixfile do
     [app: :solr_writer,
      version: "0.1.0",
      elixir: "~> 1.4",
+     escript: [main_module: SolrWriter],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]

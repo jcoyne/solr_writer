@@ -1,31 +1,15 @@
 defmodule SolrWriter do
-  import SweetXml
+  alias SolrWriter.ResourceSync
 
-  def main(_argv) do
-    result = retrieve_resources()
-    IO.puts "Result is: #{result}"
-  end
-
-  def retrieve_resources() do
-    {:ok, result} = download_page("https://hyphy.demo.hydrainabox.org/resourcelist")
-    {:ok, picture_count} = filter_nodes(result)
-    # TODO need to retrieve_doc for each of these resources.
-    picture_count
-  end
-
-  defp download_page(page) do
-    response = HTTPotion.get page
-    {:ok, response.body}
-  end
-
-  defp filter_nodes(doc) do
-    nodes = doc |> xpath(~x"//url/loc/text()"ls)
-    {:ok, nodes}
+  def main(argv) do
+    result = ResourceSync.retrieve_resources(argv, &retrieve_doc/1)
+    IO.inspect result
   end
 
   # Retrieve a turtle doc
   def retrieve_doc(url) do
-    response = HTTPotion.get url, headers: ["Accept": "text/turtle"]
+    response = HTTPotion.get url, headers: ["Accept": "text/turtle"], follow_redirects: true
+    IO.inspect response.body
     {:ok, response.body}
   end
 end
